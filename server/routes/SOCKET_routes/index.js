@@ -9,13 +9,15 @@ io.on('connection', (socket) => {
   const connectedClients = () => clients.length;
 
   socket.on('coordinates', (data) => {
+    console.log('coordinates sent: ', data);
     // Todo - insert logs here - SQL
-    socket.emit(`coordinates/room`, data);
+    socket.broadcast.emit(`coordinates/room`, data);
   });
 
   socket.on('drainage', (data) => {
+    console.log('drainage sent: ', data);
     // Todo - insert logs here - SQL
-    socket.emit(`drainage/room`, data);
+    socket.broadcast.emit(`drainage/room`, data);
   });
 
   socket.on('disconnect', () => {

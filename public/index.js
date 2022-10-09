@@ -17,10 +17,11 @@ socket.on('/root/welcome', welcomeUser);
 // Whenever the server emits '/root/update_socket_count' event, updates number of sockets connected
 socket.on('root/update_socket_count', updateSocketCount);
 // Whenever the server emits '/root/update_chat' event, add message to the chat
-socket.on('/root/update_chat', addMessage);
+socket.on('coordinates', addMessage);
 
 // Socket event handlers
 function addMessage (data) {
+  console.log(data);
   const { message, sender } =  data;
   const text = document.createTextNode(message);
   const listItem = document.createElement('li');
