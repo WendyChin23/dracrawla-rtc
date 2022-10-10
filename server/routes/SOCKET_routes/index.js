@@ -8,6 +8,7 @@ io.on('connection', (socket) => {
   let clients = eventHandlers.addToDB(socket.id);
   const connectedClients = () => clients.length;
 
+
   socket.on('coordinates', (data) => {
     console.log('coordinates sent: ', data);
     // Todo - insert logs here - SQL
